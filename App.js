@@ -1,20 +1,20 @@
+import '@azure/core-asynciterator-polyfill'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import RootNavigator from './src/navigation';
+import { withAuthenticator } from '@aws-amplify/ui-react-native';
+import { Amplify } from 'aws-amplify';
+import config from './src/aws-exports';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+Amplify.configure({ ...config, Analytics: { disabled: true } });
+
+function App() {
+	return (
+		<NavigationContainer>
+			<RootNavigator />
+			<StatusBar style='auto' />
+		</NavigationContainer>
+	);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default withAuthenticator(App);

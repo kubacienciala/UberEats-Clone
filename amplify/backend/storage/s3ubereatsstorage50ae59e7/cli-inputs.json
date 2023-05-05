@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3ubereatsstorage50ae59e7",
+  "bucketName": "ubereats-storage-50ae59e7",
+  "policyUUID": "25493bc1",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
